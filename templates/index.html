@@ -1,0 +1,44 @@
+<html>
+<head>
+    <title>Gangster</title>
+</head>
+<body>
+<center>
+<table border="3px">
+    <thead>
+    <th>id</th>
+    <th>name</th>
+    <th>eid</th>
+    <th>exp</th>
+    <th>address</th>
+    <th>contact</th>
+    <th>actions</th>
+    </thead>
+{% for i in DRDO_data %}
+    <tr>
+        <td>{{i.id}}</td>
+        <td>{{i.name}} </td>
+        <td>{{i.eid}}</td>
+        <td>{{i.exp}}</td>
+        <td>{{i.address}}</td>
+        <td>{{i.contact}}</td>
+
+        <td>
+             <a href="/office/edit/{{i.eid}}">edit</a> &nbsp&nbsp<a href="/office/delete/{{i.eid}}"> Delete </a>
+        </td>
+
+    </tr>
+{% endfor %}
+</table>
+      <td><a href="/office/create/"> Creste </a></td><br>
+      <td><a href="/accounts/logout/"> Logout </a></td>
+    <p> today is good</p>
+
+
+<br/><br/>
+{% for key,value in request.session.items %}
+{{key}}-{{value}}<br/>
+{% endfor %}
+</center>
+</body>
+</html>
